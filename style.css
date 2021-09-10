@@ -14,7 +14,7 @@ body {
 }
 
 .header {
-  background-image: url('/assets/pattern-bg.png');
+  background-image: url('assets/pattern-bg.png');
   width: 100vw;
   height: 250px;
   display: flex;
