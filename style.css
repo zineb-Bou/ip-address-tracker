@@ -59,3 +59,53 @@ body {
   outline: none;
 }
 
+.main {
+  display: flex;
+  justify-content: center;
+}
+.result-table {
+  width: 70%;
+  height: 150px;
+  margin-top: -60px;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.column {
+  position: relative;
+}
+
+.column .box-title {
+  margin: 0;
+  margin-left: 32px;
+  margin-top: 32px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--Dark-Gray);
+  font-weight: 500;
+}
+.column::after {
+  content: '';
+  height: 60%;
+  width: 1px;
+  background-color: var(--Dark-Gray);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.5;
+}
+.column:last-child::after {
+  visibility: hidden;
+}
+.column .search-result {
+  font-size: 18px;
+  color: #000;
+  font-weight: 700;
+  display: inline-block;
+  margin-left: 32px;
+  margin-top: 16px;
+}
