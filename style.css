@@ -13,3 +13,49 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+.header {
+  background-image: url('/assets/pattern-bg.png');
+  width: 100vw;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-heading {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  margin-top: 64px;
+  margin-bottom: 32px;
+}
+.form {
+  width: 500px;
+  padding: 10px 0 10px 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+}
+.submit-btn {
+  height: 100%;
+  width: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+  background-color: var(--Very-Dark-Gray);
+  border-radius: 0 10px 10px 0;
+}
+.submit-input {
+  width: 70%;
+  border: none;
+  height: 90%;
+}
+.submit-input::placeholder {
+  font-weight: 500;
+  color: var(--Dark-Gray);
+}
+.submit-input:focus {
+  outline: none;
+}
+
