@@ -107,5 +107,37 @@ body {
   font-weight: 700;
   display: inline-block;
   margin-left: 32px;
-  margin-top: 16px;
+}
+
+@media (max-width: 750px) {
+  .submit-input::placeholder {
+    font-size: 12px;
+  }
+  .main-heading {
+    font-size: 20px;
+  }
+  .form {
+    min-width: 280px;
+  }
+  .result-table {
+    width: 50%;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    min-width: 250px;
+    text-align: center;
+  }
+  .column {
+    padding: 10px 0;
+  }
+  .column .box-title {
+    margin: 0;
+    margin-top: 18px;
+  }
+  .column::after {
+    visibility: hidden;
+  }
+  .column .search-result {
+    margin: 0;
+    margin-top: 18px;
+  }
 }
