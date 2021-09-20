@@ -53,5 +53,16 @@
         </div>
       </div>
     </main>
+    <!-- retrieve the USER api address on load   -->
+    <script src="script.js"></script>
+    <script type="application/javascript">
+      function getIP(json) {
+        request(json.ip);
+      }
+    </script>
+    <script
+      type="application/javascript"
+      src="https://api.ipify.org?format=jsonp&callback=getIP"
+    ></script>
   </body>
 </html>
