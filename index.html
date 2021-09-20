@@ -30,6 +30,7 @@
     <title>ip-address-tracker</title>
   </head>
   <body>
+    <div class="bg-filter"></div>
     <header class="header">
       <h1 class="main-heading">IP Address Tracker</h1>
       <form class="form">
@@ -49,23 +50,40 @@
       <div class="result-table">
         <div class="column">
           <h3 class="box-title">IP Address</h3>
-          <span class="search-result"></span>
+          <span id="ip-address" class="search-result"></span>
         </div>
         <div class="column">
           <h3 class="box-title">location</h3>
-          <span class="search-result">New York</span>
+          <span id="country" class="search-result"></span>
         </div>
         <div class="column">
           <h3 class="box-title">TimeZone</h3>
-          <span class="search-result"></span>
+          <span id="timezone" class="search-result"></span>
         </div>
         <div class="column">
           <h3 class="box-title">isp</h3>
-          <span class="search-result"></span>
+          <span id="isp" class="search-result"></span>
         </div>
       </div>
       <div id="mapid"></div>
     </main>
+    <div class="modal-error">
+      <button class="close-btn">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          width="20"
+          height="20"
+        >
+          <path
+            fill-rule="evenodd"
+            d="m16.97 0 2.122 2.121-7.425 7.425 7.425 7.425-2.121 2.12-7.425-7.424-7.425 7.425L0 16.97l7.425-7.425L0 2.121 2.121 0l7.425 7.425L16.971 0z"
+            opacity=".25"
+          />
+        </svg>
+      </button>
+      <p>Wong ip address</p>
+    </div>
     <!-- retrieve the USER api address on load   -->
     <script src="script.js"></script>
     <script type="application/javascript">
