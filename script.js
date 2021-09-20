@@ -6,6 +6,23 @@ let country = document.querySelector('#country');
 let timeZone = document.querySelector('#timezone');
 let isp = document.querySelector('#isp');
 
+var mymap = L.map('mapid').setView([36.75587, 5.08433], 13);
+L.tileLayer(
+  'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+  {
+    attribution:
+      'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+    maxZoom: 15,
+    id: 'mapbox/streets-v11',
+    tileSize: 512,
+    zoomOffset: -1,
+    accessToken:
+      'pk.eyJ1Ijoia2V2ZXRpaDg2MSIsImEiOiJja2h4MzFxaG8wOW5pMzBsdGZ1NXFoeHh5In0.hw5mLyF4KWalDgcxAWrmuw',
+  }
+).addTo(mymap);
+var marker = L.marker([36.75587, 5.08433]).addTo(mymap);
+var polygon = L.polygon([[36.75587, 5.08433]]).addTo(mymap);
+
 // handle the event when the form is submitted
 
 form.addEventListener('submit', function (e) {
@@ -34,6 +51,7 @@ function request(ipAdress) {
     })
     .then((data) => {
       displyResult(data);
+      setMap(data);
     })
 }
 
@@ -45,3 +63,9 @@ function displyResult(data) {
   isp.innerHTML = data.isp;
 }
 
+// setting the map state
+
+function setMap(data) {
+  mymap.setView([data.location.lat, data.location.lng], 13);
+  marker.setLatLng([data.location.lat, data.location.lng]);
+}
