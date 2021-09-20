@@ -53,6 +53,9 @@ function request(ipAdress) {
       displyResult(data);
       setMap(data);
     })
+    .catch(function () {
+      throwErroMsg();
+    });
 }
 
 // displying the result on the page
@@ -69,3 +72,17 @@ function setMap(data) {
   mymap.setView([data.location.lat, data.location.lng], 13);
   marker.setLatLng([data.location.lat, data.location.lng]);
 }
+
+let filtter = document.querySelector('.bg-filter');
+let modal = document.querySelector('.modal-error');
+let close_btn = document.querySelector('.close-btn');
+
+// function that display a modal is case of a wrong ip address
+function throwErroMsg() {
+  filtter.style.visibility = 'visible';
+  modal.style.visibility = 'visible';
+}
+close_btn.addEventListener('click', () => {
+  filtter.style.visibility = 'hidden';
+  modal.style.visibility = 'hidden';
+});
