@@ -22,8 +22,25 @@ L.tileLayer(
       'pk.eyJ1Ijoia2V2ZXRpaDg2MSIsImEiOiJja2h4MzFxaG8wOW5pMzBsdGZ1NXFoeHh5In0.hw5mLyF4KWalDgcxAWrmuw',
   }
 ).addTo(mymap);
-var marker = L.marker([36.75587, 5.08433]).addTo(mymap);
-var polygon = L.polygon([[36.75587, 5.08433]]).addTo(mymap);
+
+// marker
+
+var myIcon = L.icon({
+  iconUrl: 'assets/icon-location.svg',
+  iconSize: [46, 56],
+  iconAnchor: [22, 94],
+  popupAnchor: [-3, -76],
+});
+var marker = L.marker([36.19112, 5.41373], { icon: myIcon }).addTo(mymap);
+
+// Add google map
+googleStreets = L.tileLayer(
+  'http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',
+  {
+    maxZoom: 20,
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+  }
+).addTo(mymap);
 
 // handle the event when the form is submitted
 
