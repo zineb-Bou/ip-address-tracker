@@ -6,7 +6,7 @@ let country = document.querySelector('#country');
 let timeZone = document.querySelector('#timezone');
 let isp = document.querySelector('#isp');
 
-// map initialization
+// Map initialization
 var mymap = L.map('mapid').setView([36.75587, 5.08433], 13);
 // osm layers
 L.tileLayer(
@@ -23,7 +23,7 @@ L.tileLayer(
   }
 ).addTo(mymap);
 
-// marker
+// Marker
 
 var myIcon = L.icon({
   iconUrl: 'assets/icon-location.svg',
@@ -42,21 +42,31 @@ googleStreets = L.tileLayer(
   }
 ).addTo(mymap);
 
-// handle the event when the form is submitted
+// Handle the event when the form is submitted
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
 
-  let ipAdress = document.querySelector('.submit-input').value;
+  let inputValue = document.querySelector('.submit-input').value.trim();
 
-  request(ipAdress);
+  if (checkValidDomain(inputValue)) {
+    request(inputValue, 'domain');
+  } else if (checkValidIpv4(inputValue) || checkValidIpv6(inputValue)) {
+    request(inputValue);
+  } else {
+    throwErroMsg();
+  }
 });
 
-// make a request to retieve data
-
-function request(ipAdress) {
+// Make a request to retieve data
+function request(value, typeRequest = 'ip') {
+  let requestQuery = 'ipAddress=' + value;
+  // console.log(`Search by ${typeRequest}`);
+  if (typeRequest === 'domain') {
+    requestQuery = requestQuery.replace('ipAddress', 'domain');
+  }
   fetch(
-    `https://geo.ipify.org/api/v1?apiKey=at_E6727iJ7USiRAYIPBgNuuPOv5kmjL&ipAddress=${ipAdress}`
+    `https://geo.ipify.org/api/v1?apiKey=at_E6727iJ7USiRAYIPBgNuuPOv5kmjL&${requestQuery}`
   )
     .then((result) => {
       if (result.ok) {
@@ -77,7 +87,7 @@ function request(ipAdress) {
     });
 }
 
-// displying the result on the page
+// Displying the result on the page
 function displyResult(data) {
   ipAdress.innerHTML = data.ip;
   country.innerHTML = data.location.city;
