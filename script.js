@@ -6,7 +6,9 @@ let country = document.querySelector('#country');
 let timeZone = document.querySelector('#timezone');
 let isp = document.querySelector('#isp');
 
+// map initialization
 var mymap = L.map('mapid').setView([36.75587, 5.08433], 13);
+// osm layers
 L.tileLayer(
   'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
   {
