@@ -11,11 +11,10 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Rubik', sans-serif;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
-.header {
+.header { 
   background-image: url('assets/pattern-bg.png');
   height: 250px;
   display: flex;
@@ -73,14 +72,13 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
-  height: 450px;
+  height: calc(100vh - 250px);
 }
 #mapid {
   height: 180px;
-  position: absolute;
   top: 0;
   z-index: -1;
-  height: 450px;
+  height: 100%;
   width: 100%;
 }
 .result-table {
@@ -94,7 +92,8 @@ body {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 80px;
   height: 100px;
-  margin-top: -60px;
+  position: absolute;
+  top: -60px;
 }
 .column {
   position: relative;
